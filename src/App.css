@@ -1,3 +1,9 @@
 * {
-  margin: 0
+  margin: 0;
+  
+  
+}
+
+.app {
+  background-image: url(./herringbone.png)
 }
