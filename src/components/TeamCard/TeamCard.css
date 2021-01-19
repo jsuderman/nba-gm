@@ -1,20 +1,9 @@
 .teamCard {
-    justify-content: center;
-    align-content: center;
-    padding: 5px;
-}
-.Card {
-    flex: 1;
-}
-
-.Card.Img {
-    justify-content: center;
-    align-content: center;
-}
-
-.Card-text {
-    display: flex;
-    flex-direction: column;
+    width:25%;
+    padding: 20px;
+    position: 1;
+    
+    
 }
 
 .teamCard__img {
@@ -23,4 +12,17 @@
 
 .teamCard__body {
     text-align: center;
+}
+
+.teamCard__colOne {
+    display: flex;
+    width: 25%;
+}
+
+.teamCard__colTwo {
+    display: flex;
+}
+
+.teamCard__card {
+    position: relative;
 }

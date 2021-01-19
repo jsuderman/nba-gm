@@ -1,25 +1,32 @@
 import React from 'react';
 import "./TeamCard.css"
-import { Card } from 'react-bootstrap';
+import { Card, Button } from 'react-bootstrap';
 
 function TeamCard(props) {
 
-    
+
 
 
 
     return (
         <div className="teamCard">
-            <Card style={{ width: '5rem'}}>
-                <Card.Img className="teamCard__img" width="100%" variant="top" src={props.team.WikipediaLogoUrl} />
-                <Card.Body className="teamCard__body">
-                    {/* <Card.Title>Card Title</Card.Title> */}
-                    <Card.Text style={{display: 'flex', flexDirection: "column"}}>
-                        {props.team.City} {props.team.Name}
-                    </Card.Text>
-                </Card.Body>
-            </Card>
             
+                
+                    <Card.Img className="teamCard__img" variant="top" src={props.team.WikipediaLogoUrl} />
+               
+                    <Card className="teamCard__card" style={{ minWidth: "5rem" }}>
+                        <Card.Body className="teamCard__body">
+                            {/* <Card.Title>Card Title</Card.Title> */}
+                            <Card.Text style={{ fontSize: "x-small", fontWeight:"600" }}>
+                                {props.team.City} {props.team.Name}
+                            </Card.Text>
+                            <Button variant="link">Players</Button>
+                        </Card.Body>
+                    </Card>
+                
+            
+
+
         </div>
 
 
