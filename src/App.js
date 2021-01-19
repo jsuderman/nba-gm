@@ -9,7 +9,7 @@ function App() {
       <Navigation />
       <Hero />
       <Team />
-      {/* get api call to get teams */}
+      
       {/* make a card for each team with pic and name */}
       {/* make each team card onclick that brings all the players from that team */}
       {/* have add button for each player to users team */}

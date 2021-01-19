@@ -1,0 +1,26 @@
+.teamCard {
+    justify-content: center;
+    align-content: center;
+    padding: 5px;
+}
+.Card {
+    flex: 1;
+}
+
+.Card.Img {
+    justify-content: center;
+    align-content: center;
+}
+
+.Card-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.teamCard__img {
+    height: 50px;
+}
+
+.teamCard__body {
+    text-align: center;
+}

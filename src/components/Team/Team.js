@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
+import "./Team.css";
 import TeamCard from "../TeamCard/TeamCard";
 import axios from 'axios';
+// import Table from "../Table/Table"
+// import schema from "../../schema.json"
 
 function Team(props) {
 
@@ -17,17 +20,48 @@ function Team(props) {
     },[]);
     
 
+    // const renderHeader = () => {
+    //     let headerElement = [ 'city', 'Name']
+
+    //     return headerElement.map((key, index) => {
+    //         return <th key={index}>{key.toUpperCase()}</th>
+    //     })
+    // }
+
+    // const renderBody = () => {
+    //     return teams && teams.map(({ TeamID, City, Name}) => {
+    //         return (
+    //             <tr key={TeamID}>
+    //                 <td>{City}</td>
+    //                 <td>{Name}</td>
+    //             </tr>
+    //         )
+    //     })
+    // }
+
+
     return (
         <div className="team">
-            <div>
+                {/* <table id="team" className="team__table">
+                    <thead>
+                        <tr>{renderHeader()}</tr>
+                    </thead>
+                    <tbody className='team__body'>
+                        {renderBody()}
+                    </tbody>
+                </table> */}
+
+
+
+
                 {teams.map(team => (
                     <TeamCard 
                     team={team}
                     key={team.key}
                     />
                 ))}
-            </div>
             
+            {/* <Table teams={teams}/> */}
         </div>
     )
 }

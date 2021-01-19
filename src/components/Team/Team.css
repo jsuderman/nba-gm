@@ -1,0 +1,34 @@
+.team {
+    display: flex;
+    flex-direction:row;
+   padding: 5px
+    
+}
+
+.team__table {
+    text-align: center;
+    max-height: 40vh;
+}
+
+/* #team td,
+#team th {
+    
+    padding: 12px;
+}
+
+#team tr {
+    border: 1px solid black !important;
+}
+
+#team tr:hover {
+    background-color:blue;
+}
+
+#team th {
+    padding: 10px;
+
+}
+
+.team__body {
+    border: 1px solid black;
+} */
