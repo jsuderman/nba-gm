@@ -26,3 +26,12 @@
 .teamCard__card {
     position: relative;
 }
+
+.teamCard__button {
+    border: none;
+    background-color: khaki;
+}
+
+.teamCard > button > link {
+    background-color: lawngreen;
+}

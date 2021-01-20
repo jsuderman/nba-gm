@@ -20,7 +20,7 @@ function TeamCard(props) {
                             <Card.Text style={{ fontSize: "x-small", fontWeight:"600" }}>
                                 {props.team.City} {props.team.Name}
                             </Card.Text>
-                            <Button variant="link">Players</Button>
+                            <Button bsClass="teamCard__button">Players</Button>
                         </Card.Body>
                     </Card>
                 
