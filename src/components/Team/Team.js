@@ -21,24 +21,7 @@ function Team(props) {
     }, []);
 
 
-    // const renderHeader = () => {
-    //     let headerElement = [ 'city', 'Name']
-
-    //     return headerElement.map((key, index) => {
-    //         return <th key={index}>{key.toUpperCase()}</th>
-    //     })
-    // }
-
-    // const renderBody = () => {
-    //     return teams && teams.map(({ TeamID, City, Name}) => {
-    //         return (
-    //             <tr key={TeamID}>
-    //                 <td>{City}</td>
-    //                 <td>{Name}</td>
-    //             </tr>
-    //         )
-    //     })
-    // }
+ 
 
 
     return (

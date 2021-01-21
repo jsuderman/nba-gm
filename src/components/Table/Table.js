@@ -1,36 +1,41 @@
-// import React from 'react';
-// import './Table.css';
+import React from 'react';
+import './Table.css';
 
 
-// function Table({ teams }) {
+function Table() {
 
-//     const columns = teams[1] && Object.keys(teams[1])
-//     // const { id, city, name } = team
-//     // return (
-//     //     <tr key={id}>
-//     //         <td>{id}</td>
-//     //         <td>{city}</td>
-//     //         <td>{name}</td>
-//     //     </tr>
-//     // )
-//     return (
-//         <table cellPadding={0} cellSpacing={0}>
-//             <thead>
-//                 <tr>{teams[0] && columns.map(heading => <th>{heading}</th>)}</tr>
-//             </thead>
+    const renderHeader = () => {
+        let headerElement = [ 'city', 'Name']
 
-//             <tbody>
-//                 {teams.map(row => 
-//                 <tr>
-//                     {
-//                         columns.map(column => <td>{row[column]}</td>)
-//                     }
-//                 </tr>
-//                 )}
-//             </tbody>
-//         </table>
-//     )
-// }
+        return headerElement.map((key, index) => {
+            return <th key={index}>{key.toUpperCase()}</th>
+        })
+    }
 
-// export default Table
+    const renderBody = () => {
+        return teams && teams.map(({ TeamID, City, Name}) => {
+            return (
+                <tr key={TeamID}>
+                    <td>{City}</td>
+                    <td>{Name}</td>
+                </tr>
+            )
+        })
+    }
+
+
+    return (
+
+        <table id="team" className="team__table">
+            <thead>
+                <tr>{renderHeader()}</tr>
+            </thead>
+            <tbody className='team__body'>
+                {renderBody()}
+            </tbody>
+        </table>
+    )
+}
+
+export default Table
 
