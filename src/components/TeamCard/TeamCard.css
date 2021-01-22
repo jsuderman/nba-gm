@@ -35,3 +35,20 @@
 .teamCard > button > link {
     background-color: lawngreen;
 }
+
+.teamCard__operation {
+    border: none;
+    outline: none;
+    ;
+}
+
+.teamCard__operation > button {
+    color: black;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.team__table {
+    background-color: lawngreen;
+}

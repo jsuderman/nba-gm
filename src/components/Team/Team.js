@@ -11,13 +11,43 @@ function Team(props) {
     // const url = "https://random-data-api.com/api/stripe/random_stripe"
 
     const [teams, setTeams] = useState([]);
+    const [teamKeys, setTeamKeys ] = useState([]);
 
+    // const getPlayerId = id => axios.get(`https://api.sportsdata.io/v3/nba/stats/json/Players/${id}?key=b7f466ebf369487fa904c3d202b049d1`)
 
     useEffect(() => {
-        axios.get("https://api.sportsdata.io/v3/nba/scores/json/teams?key=b7f466ebf369487fa904c3d202b049d1")
-            .then(response => setTeams(response.data))
 
+        const getTeamData = async () => {
+            const NBATeams = await axios.get("https://api.sportsdata.io/v3/nba/scores/json/teams?key=b7f466ebf369487fa904c3d202b049d1");
+            const playersData = await Promise.all(NBATeams.data.map(async (res) => {
+                const players = await axios.get(`https://api.sportsdata.io/v3/nba/stats/json/Players/${res.Key}?key=b7f466ebf369487fa904c3d202b049d1`
+                );
 
+                return players.data;
+            }));
+
+            setTeams({ NBATeams: NBATeams , playersData: playersData })
+            console.log(teams)
+        };
+
+        getTeamData();
+        
+
+        // axios.get("https://api.sportsdata.io/v3/nba/scores/json/teams?key=b7f466ebf369487fa904c3d202b049d1")
+        //     .then(response => {
+        //         setTeams(response.data)
+        //         console.log(response.data)
+        //     return teams
+            
+        // })
+        // .then(teams.filter(team => team.Key).map(filteredTeam => (
+        //    {filteredTeam} 
+        // )))
+        // .then(teams => axios.get(`https://api.sportsdata.io/v3/nba/stats/json/Players/${teams[9].Key}?key=b7f466ebf369487fa904c3d202b049d1`))
+        // .then(response => {
+        //     setTeamKeys(response.data);
+        //     console.log(teamKeys)
+        // })
     }, []);
 
 
@@ -34,7 +64,7 @@ function Team(props) {
                         {renderBody()}
                     </tbody>
                 </table> */}
-            <Container>
+            {/* <Container>
                 <CardDeck>
                     {teams.map(team => (
                         <TeamCard
@@ -43,7 +73,7 @@ function Team(props) {
                         />
                     ))}
                 </CardDeck>
-            </Container>
+            </Container> */}
 
 
 

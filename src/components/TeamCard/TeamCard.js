@@ -12,7 +12,7 @@ function TeamCard(props) {
         axios.get(`https://api.sportsdata.io/v3/nba/stats/json/Players/was?key=b7f466ebf369487fa904c3d202b049d1`)
             .then(response => {
                 setPlayers(response.data);
-                console.log(response.data);
+                // console.log(response.data);
             })
             .catch(err => {
                 console.log('Error:' + err);
@@ -63,6 +63,7 @@ function TeamCard(props) {
     }
 
     const playerTable = 
+
         players.map(player => (
             <table id="team" className="team__table" key={player.PlayerID}>
            <thead>
