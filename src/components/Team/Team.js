@@ -6,18 +6,13 @@ import { Container, CardDeck } from "react-bootstrap";
 // import Table from "../Table/Table"
 // import schema from "../../schema.json"
 
-function Team(props) {
+function Team() {
 
-    // const url = "https://random-data-api.com/api/stripe/random_stripe"
-
-    const [teams, setTeams] = useState([]);
-    const [teamKeys, setTeamKeys ] = useState([]);
-
-    // const getPlayerId = id => axios.get(`https://api.sportsdata.io/v3/nba/stats/json/Players/${id}?key=b7f466ebf369487fa904c3d202b049d1`)
+    const [nbaData, setNbaData] = useState([]);
 
     useEffect(() => {
 
-        const getTeamData = async () => {
+        const getNBAData = async () => {
             const NBATeams = await axios.get("https://api.sportsdata.io/v3/nba/scores/json/teams?key=b7f466ebf369487fa904c3d202b049d1");
             const playersData = await Promise.all(NBATeams.data.map(async (res) => {
                 const players = await axios.get(`https://api.sportsdata.io/v3/nba/stats/json/Players/${res.Key}?key=b7f466ebf369487fa904c3d202b049d1`
@@ -26,29 +21,14 @@ function Team(props) {
                 return players.data;
             }));
 
-            setTeams({ NBATeams: NBATeams , playersData: playersData })
-            console.log(teams)
+            setNbaData({ NBATeams: NBATeams , playersData: playersData })
+            console.log(nbaData)
+            console.log(nbaData.playersData)
         };
 
-        getTeamData();
+        getNBAData();
         
-
-        // axios.get("https://api.sportsdata.io/v3/nba/scores/json/teams?key=b7f466ebf369487fa904c3d202b049d1")
-        //     .then(response => {
-        //         setTeams(response.data)
-        //         console.log(response.data)
-        //     return teams
-            
-        // })
-        // .then(teams.filter(team => team.Key).map(filteredTeam => (
-        //    {filteredTeam} 
-        // )))
-        // .then(teams => axios.get(`https://api.sportsdata.io/v3/nba/stats/json/Players/${teams[9].Key}?key=b7f466ebf369487fa904c3d202b049d1`))
-        // .then(response => {
-        //     setTeamKeys(response.data);
-        //     console.log(teamKeys)
-        // })
-    }, []);
+    },[]);
 
 
  
@@ -63,10 +43,24 @@ function Team(props) {
                     <tbody className='team__body'>
                         {renderBody()}
                     </tbody>
-                </table> */}
+                </table>  */}
             {/* <Container>
                 <CardDeck>
-                    {teams.map(team => (
+                    {
+                        nbaData.NBATeams.data.map(team => {
+                            return <div>
+                                <TeamCard 
+                                team={team}
+                                key={team.Key}
+                                />
+                            </div>
+                        })
+                    }
+                </CardDeck>
+            </Container> */}
+            {/* <Container>
+                <CardDeck>
+                    {nbaData.map(team => (
                         <TeamCard
                             team={team}
                             key={team.key}
@@ -79,7 +73,7 @@ function Team(props) {
 
 
 
-            {/* <Table teams={teams}/> */}
+             {/* <Table teams={teams}/> */}
         </div>
     )
 }
